@@ -1,7 +1,5 @@
 import random
 
-reply = str(raw_input("Do you want to Bat? (y/n): "))
-
 posruns = [1,2,3,4,6,0]
 
 def bowling():
@@ -17,11 +15,12 @@ def bowling():
         if run == int(guess):
             print("Computer scored! " + str(run) + " runs, you guessed " + str(guess))
             print("Computer is out! You guessed correctly")
-            print("The score was " + str(runs) + " runs")
+            print("They scored " + str(runs) + " runs")
             break
         else:
             print("Computer scored! " + str(run) + " runs, you guessed " + str(guess))
             runs += run
+    return int(runs)
 
 def batting():
     runs = 0
@@ -36,15 +35,33 @@ def batting():
         if int(run) == guess:
             print("You scored! " + str(run) + " runs, computer guessed " + str(guess))
             print("Player is out! Computer guessed your runs")
-            print("The score was " + str(runs) + " runs")
+            print("You scored " + str(runs) + " runs batting")
             break
         else:
             print("You scored! " + str(run) + " runs, computer guessed " + str(guess))
             runs += int(run)
+    return int(runs)
 
-if reply[:1] == 'y':
-    print("You chose to Bat, enter your number of runs: ")
-    batting()
-if reply[:1] == 'n':
-    print("You chose to Bowl.")
-    bowling()
+while True:
+    reply = str(raw_input("Do you want to Bat? (y/n): "))
+    if reply[:1] == 'y':
+        print("Your batting.")
+        yourRuns = batting()
+        print("Your turn to bowl.")
+        compRuns = bowling()
+        break
+    elif reply[:1] == 'n':
+        print("Your turn to bowl.")
+        compRuns = bowling()
+        print("Your batting.")
+        yourRuns = batting()
+        break
+    else: 
+        print("Please answer yes(y) or no(n)")
+
+if yourRuns > compRuns:
+    print("CONGRATULATIONS YOU WIN THE GAME!!! :D")
+elif yourRuns < compRuns:
+    print("Computer wins the game! Shit")
+else:
+    print("It was a draw... ")
