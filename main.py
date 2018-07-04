@@ -8,8 +8,12 @@ def bowling():
         run = random.choice(posruns)
         while True:
             guess = raw_input("Cricket! You are bowling, guess the number of runs: ")
-            if guess != "" and int(guess) in posruns:
-                break
+            try:
+                x = int(guess)
+                if x in posruns:
+                    break
+            except ValueError:
+                print("Please guess a valid Cricket score in this list: (0,1,2,3,4,6)")
             else:
                 print("Please guess a valid Cricket score in this list: (0,1,2,3,4,6)")
         if run == int(guess):
@@ -28,8 +32,12 @@ def batting():
         guess = random.choice(posruns)
         while True:
             run = raw_input("You are batting, how many runs do you hit: ")
-            if run != "" and  int(run) in posruns:
-                break
+            try:
+                x = int(run)
+                if x in posruns:
+                    break
+            except ValueError:
+                print("Please guess a valid Cricket score in this list: (0,1,2,3,4,6)")
             else:
                 print("Please guess a valid Cricket score in this list: (0,1,2,3,4,6)")
         if int(run) == guess:
@@ -45,7 +53,7 @@ def batting():
 while True:
     reply = str(raw_input("Do you want to Bat? (y/n): "))
     if reply[:1] == 'y':
-        print("Your batting.")
+        print("Your are batting.")
         yourRuns = batting()
         print("Your turn to bowl.")
         compRuns = bowling()
@@ -53,7 +61,7 @@ while True:
     elif reply[:1] == 'n':
         print("Your turn to bowl.")
         compRuns = bowling()
-        print("Your batting.")
+        print("Your are batting.")
         yourRuns = batting()
         break
     else: 
