@@ -2,6 +2,9 @@ import random
 
 posruns = [1,2,3,4,6,0]
 
+print("Welcome to Cricket! the object of the game is to guess what score your opponent is going to hit out of these possible scores: (1,2,3,4,6,0) goodluck.")
+print("The player with the highest score at the end of their innings will be the winner, the game is about to start, you will have to choose if you want to bat first or bowl.")
+
 def bowling():
     runs = 0
     while True:
@@ -22,8 +25,8 @@ def bowling():
             print("They scored " + str(runs) + " runs")
             break
         else:
-            print("Computer scored! " + str(run) + " runs, you guessed " + str(guess))
             runs += run
+            print("Computer scored! " + str(run) + " runs, you guessed " + str(guess) + " (Computer score: " + str(runs) + ")")
     return int(runs)
 
 def batting():
@@ -46,14 +49,14 @@ def batting():
             print("You scored " + str(runs) + " runs batting")
             break
         else:
-            print("You scored! " + str(run) + " runs, computer guessed " + str(guess))
             runs += int(run)
+            print("You scored! " + str(run) + " runs, computer guessed " + str(guess) + " (Your score: " + str(runs) + ")")
     return int(runs)
 
 while True:
     reply = str(raw_input("Do you want to Bat? (y/n): "))
     if reply[:1] == 'y':
-        print("Your are batting.")
+        print("You are batting.")
         yourRuns = batting()
         print("Your turn to bowl.")
         compRuns = bowling()
@@ -61,7 +64,7 @@ while True:
     elif reply[:1] == 'n':
         print("Your turn to bowl.")
         compRuns = bowling()
-        print("Your are batting.")
+        print("You are batting.")
         yourRuns = batting()
         break
     else: 
