@@ -2,6 +2,20 @@ import random
 
 posruns = [1,2,3,4,6,0]
 
+# Settings:
+# computer run preference
+compPref = [1,2,3,4,6,0]
+random.shuffle(compPref)
+
+# computer guess preference
+compPrefGuess = [1,2,3,4,6,0]
+random.shuffle(compPrefGuess)
+
+print("Settings:")
+print(" --compPref: " + str(compPref))
+print(" --compPrefGuess: " + str(compPrefGuess))
+print("\n")
+
 print("Welcome to Cricket! the object of the game is to guess what score your opponent is going to hit out of these possible scores: (1,2,3,4,6,0) goodluck.")
 print("The player with the highest score at the end of their innings will be the winner, the game is about to start, you will have to choose if you want to bat first or bowl.")
 
