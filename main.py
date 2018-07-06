@@ -22,7 +22,12 @@ print("The player with the highest score at the end of their innings will be the
 def bowling():
     runs = 0
     while True:
-        run = random.choice(posruns)
+        for i in compPref:
+            u = [0,1,1,1]
+            j = random.choice(u)
+            if int(j) == 0:
+                run = i
+                break
         while True:
             guess = raw_input("Cricket! You are bowling, guess the number of runs: ")
             try:
